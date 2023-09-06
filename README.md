@@ -1,11 +1,15 @@
 # Power Set Service
 ## Installation
 ```bash
-    git clone
+    git clone https://github.com/Nattakornn/power-set-test.git
 ```
 
 ```bash
-    npm install
+    git clone https://github.com/Nattakornn/power-set-test.git
+```
+
+```bash
+    cd power-set-test
 ```
 
 ## Run
