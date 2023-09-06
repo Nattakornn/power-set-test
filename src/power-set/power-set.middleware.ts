@@ -9,8 +9,7 @@ export class PowerSetMiddleware implements NestMiddleware {
     if (!numsStr || numsStr.length === 0) {
       throw new BadRequestException(PowerSetErrors.NO_INFORMATION);
     }
-
-    const nums = numsStr.split(',').map((num) => (num === '' ? null : Number(num)));
+    const nums = numsStr.split(',').map((num) => (num === '' ? null : parseFloat(num))); 
     this.validate(nums);
 
     req['nums'] = nums;
@@ -18,14 +17,6 @@ export class PowerSetMiddleware implements NestMiddleware {
   }
 
   private validate(nums: number[]) {
-    if (nums.length < 1 || nums.length > 10) {
-      throw new BadRequestException(PowerSetErrors.NUMS_LENGTH_EXCEED_LIMIT);
-    }
-
-    if (new Set(nums).size !== nums.length) {
-      throw new BadRequestException(PowerSetErrors.DUPLICATED_NUMBERS);
-    }
-
     const stack: number[] = []
     for (const num of nums) { //Time complexity O(n)
       if (isNaN(num)) {
@@ -40,6 +31,13 @@ export class PowerSetMiddleware implements NestMiddleware {
     }
     if (stack.length !== 0) {
       throw new BadRequestException(`Number out of range: ${stack}, expected a number in the range of -10 to 10`);
+    }
+
+    if (nums.length < 1 || nums.length > 10) {
+      throw new BadRequestException(PowerSetErrors.NUMS_LENGTH_EXCEED_LIMIT);
+    }
+    if (new Set(nums).size !== nums.length) {
+      throw new BadRequestException(PowerSetErrors.DUPLICATED_NUMBERS);
     }
   }
 }
