@@ -5,11 +5,11 @@
 ```
 
 ```bash
-    git clone https://github.com/Nattakornn/power-set-test.git
+    cd power-set-test
 ```
 
 ```bash
-    cd power-set-test
+    npm install
 ```
 
 ## Run
