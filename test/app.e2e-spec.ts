@@ -53,6 +53,12 @@ describe('AppController (e2e)', () => {
       .expect(400);
   });
 
+  it('should return a 400 status for no information. (GET /power-set)', () => {
+    return request(app.getHttpServer())
+      .get('/power-set')
+      .expect(400);
+  });
+
   it('should return a 400 status for input must be a number. (GET /power-set?nums=a,b,c,1,2)', () => {
     return request(app.getHttpServer())
       .get('/power-set?nums=a,b,c,1,2')
