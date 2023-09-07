@@ -1,4 +1,8 @@
 # Power Set Service
+## Require
+- node 16.x
+- docker
+
 ## Installation
 ```bash
     git clone https://github.com/Nattakornn/power-set-test.git
@@ -15,6 +19,11 @@
 ## Run
 ```bash
     npm run start
+```
+
+## Run with docker
+```bash
+    docker compose up 
 ```
 
 ## Test
